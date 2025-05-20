@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>OMUC</title>
+    <meta name="description" content="Online Monitoring of Unauthorized Construction">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Wallpoet&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <nav id="nav">
+        <div class="logo">
+            <a href="#">OMUC</a>
+        </div>
+
+        <div class="nav_center_part">
+            <a href="#">HOME</a>
+            <a href="#authorized_list_section">AUTHORIZED CONST.</a>
+            <a href="">SEARCH</a>
+            <a href="#">ABOUT US</a>
+            <a href="#">CONTACT US</a>
+        </div>
+
+        <div class="nav_right_part">
+            <a href="#">FAQ</a>
+            <div class="auth_buttons">
+                <a href="#">SIGN UP</a>
+                <a href="#">LOG IN</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <header class="hero_section">
+        <div class="contcon">
+            <h1>Welcome to OMUC</h1>
+            <p>Track and verify authorized and unauthorized construction projects across the city of Indore. Our
+                platform provides a comprehensive list of verified, legal constructions while also helping the public
+                report suspicious activities. </p>
+
+            <p>OMUC aims to increase transparency and ensure the safety of urban development. With up-to-date details on
+                construction approvals, owners, and relevant documents, our platform helps citizens stay informed and
+                authorities ensure compliance with building regulations.</p>
+
+            <p>Whether you're a resident concerned about illegal constructions, a builder verifying the status of your
+                projects, or an authority looking to monitor urban growth, OMUC offers all the resources you need in one
+                place.</p>
+
+            <a href="#authorized-const-section" class="explore_button">Authorized Projects</a>
+            <a href="#authorized-const-section" class="explore_button">Request approval</a>
+        </div>
+    </header>
+
+    <section class="authorized_list_section" id="authorized-const-section">
+        <h2>Authorized Constructions</h2>
+        <p id="intro_auth_tab">List of all Authorized Construction across the city of Indore</p>
+
+        <!-- Hidden Search Type Input to hold selected search type -->
+        <div class="search-container">
+            <!-- Hidden Search Type Input to hold selected search type -->
+            <input type="hidden" id="searchType" value="Address">
+
+            <!-- Search Type Dropdown -->
+            <div class="custom-dropdown">
+                <div class="dropdown-selected" onclick="toggleDropdown()">Search by Address</div>
+                <div class="dropdown-options">
+                    <div class="dropdown-option" onclick="selectOption('Address')">Search by Address</div>
+                    <div class="dropdown-option" onclick="selectOption('owner')">Search by Owner</div>
+                    <div class="dropdown-option" onclick="selectOption('plotId')">Search by Plot ID</div>
+                    <div class="dropdown-option" onclick="selectOption('approvalDate')">Search by Approval Date</div>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <input type="text" id="searchBar" placeholder="Search for a construction..." onkeyup="searchFunction()">
+        </div>
+
+        <div class="construction_cards_container">
+            <!-- Construction Card 1 -->
+            <div class="construction_card">
+                <h3>Plot No. 83, Sudama Nagar, Indore</h3>
+                <p class="owner">Owner: Mr. Ramesh Gupta</p>
+                <p class="plot-id">Plot ID: IND56782</p>
+                <p class="approval-date">Approval Date: 12th March 2024</p>
+                <a href="#">MORE INFO</a>
+            </div>
+
+            <!-- Construction Card 2 -->
+            <div class="construction_card">
+                <h3>Plot No. 163, Revenue Nagar, Indore</h3>
+                <p class="owner">Owner: M/s ABC Builders Pvt. Ltd.</p>
+                <p class="plot-id">Plot ID: IND78934</p>
+                <p class="approval-date">Approval Date: 5th January 2025</p>
+                <a href="#">MORE INFO</a>
+            </div>
+
+            <!-- Construction Card 3 -->
+            <div class="construction_card">
+                <h3>Plot No. 85, Annapurna Nagar, Indore</h3>
+                <p class="owner">Owner: Mrs. Asha Patil</p>
+                <p class="plot-id">Plot ID: IND34567</p>
+                <p class="approval-date">Approval Date: 18th February 2025</p>
+                <a href="#">MORE INFO</a>
+            </div>
+
+            <!-- Construction Card 4 -->
+            <div class="construction_card">
+                <h3>Plot No. 68, Sector A, Silicon City, Rau, Indore</h3>
+                <p class="owner">Owner: M/s Green Earth Developers</p>
+                <p class="plot-id">Plot ID: IND67892</p>
+                <p class="approval-date">Approval Date: 30th October 2024</p>
+                <a href="#">MORE INFO</a>
+            </div>
+
+            <!-- Construction Card 5 -->
+            <div class="construction_card">
+                <h3>Plot No. 94, Vistara City, Indore</h3>
+                <p class="owner">Owner: Mr. Suresh Kumar</p>
+                <p class="plot-id">Plot ID: IND56478</p>
+                <p class="approval-date">Approval Date: 22nd December 2024</p>
+                <a href="#">MORE INFO</a>
+            </div>
+
+            <!-- Construction Card 6 -->
+            <div class="construction_card">
+                <h3>Mu. H. No. 13 (New No. 17), MG Road, Indore</h3>
+                <p class="owner">Owner: M/s Lotus Homes</p>
+                <p class="plot-id">Plot ID: IND90932</p>
+                <p class="approval-date">Approval Date: 9th August 2024</p>
+                <a href="#">MORE INFO</a>
+            </div>
+        </div>
+    </section>
+    <section class="about_section">
+        <h2>About Us</h2>
+        <p class="abt_us_content">OMUC (Online Monitoring of Unauthorized Construction) aims to bring transparency by
+            listing all authorized constructions in the city. This platform helps citizens, authorities, and builders to
+            verify the legality of any construction activity easily.</p>
+    </section>
+
+    <section class="contact_section">
+        <h2>Contact Us</h2>
+        <p>Email: support@omuc.in</p>
+        <p>Phone: +91 9876543210</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 OMUC | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+</body>
+
+</html>

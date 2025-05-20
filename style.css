@@ -1,0 +1,327 @@
+/* Basic Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* Navbar styling */
+nav {
+    position: fixed;
+    width: 100%;
+    height: 9vh;
+    background-color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-family: "Noto Serif", serif;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+/* Logo */
+.logo a {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Center links */
+.nav_center_part {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Right side */
+.nav_right_part {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Auth buttons inside nav_right_part */
+.auth_buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* All nav links */
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-size: 1.1rem;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+}
+
+/* Hover effect */
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #007bff;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+nav.scrolled{
+    background-color: #f8f8f898;
+}
+
+/* Hero Section */
+
+.hero_section {
+    text-align: center;
+    padding: 5rem 3rem 1rem 3rem;
+    background: linear-gradient(135deg, #e0f7fa, #ffffff);
+}
+
+.hero_section h1 {
+    font-family: "Playfair", serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.hero_section p {
+    font-family: "Playfair", serif;
+    font-size: 1.3rem;
+    color: #555;
+}
+
+.explore_button {
+    display: inline-block;
+    margin: 3.5rem 10px 2rem 0; /* top, right, bottom, left */
+    padding: 12px 24px; 
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}       
+
+
+.explore_button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Authorized Construction List Section */
+.authorized_list_section {
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.authorized_list_section h2 {
+    font-family: "Playfair", serif;
+    text-align: left;
+    margin-bottom: 0.6rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+#intro_auth_tab{
+    font-family: "Playfair", serif;
+    font-size: 1.3rem;
+    color: #555;
+    text-transform: uppercase; 
+}
+
+.construction_cards_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* space between cards */
+    justify-content: center; /* center cards horizontally */
+    padding: 20px 0;
+}
+
+.construction_card {
+    font-family: "Playfair", serif;
+    cursor: pointer;
+    background-color: #fff;
+    padding: 1.5rem;
+    width: 300px;
+    margin: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    will-change: transform;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    image-rendering: optimizeQuality;
+}
+
+
+.construction_card h3 {
+    margin-bottom: 0.5rem;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    image-rendering: optimizeQuality;
+}
+
+.construction_card a {
+    margin-top: 1rem;
+    display: inline-block;
+    color: #007bff;
+    text-decoration: underline;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    image-rendering: optimizeQuality;
+}
+
+.construction_card:hover {
+    transform: rotateY(5deg) rotateX(5deg) scale(1.03);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    image-rendering: optimizeQuality;
+}
+
+/* Custom Dropdown and Search Bar Container */
+.search-container {
+    display: flex;
+    align-items: center;  /* Align the dropdown and search bar vertically */
+}
+
+/* Custom Dropdown Container */
+.custom-dropdown {
+    position: relative;
+    width: 200px;  /* You can adjust this as needed */
+    margin-right: 10px;  /* Adds space between dropdown and search bar */
+}
+
+/* Selected option */
+.dropdown-selected {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+/* Dropdown options container */
+.dropdown-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0; /* Align to the right of the container */
+    width: 100%;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+    max-height: 0; /* Hidden by default */
+    z-index: 999;
+    transition: ease-in-out;
+    
+}
+
+/* Dropdown options */
+.dropdown-option {
+    font-size: 16px;
+    padding: 12px 20px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 999;
+    transition: ease-in-out;
+}
+
+/* Option hover effect */
+.dropdown-option:hover {
+    background-color: #f0f0f0;
+}
+
+/* Show the options */
+.dropdown-options.show {
+    display: block;
+    max-height: 200px; /* Set a maximum height for the smooth transition */
+}
+
+/* Focus effect on selected option */
+.dropdown-selected:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Search Bar Styles */
+#searchBar {
+    font-size: 16px;
+    padding: 10px 20px;
+    width: 250px; /* Adjust width as needed */
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    color: #333;
+}
+
+
+
+/* About Section */
+.about_section h2 {
+    font-family: "Playfair", serif;
+    text-align: left;
+    margin: 1.5rem 2rem 0.6rem 2rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.abt_us_content{
+    font-family: "Playfair", serif;
+    font-size: 1.3rem;
+    margin: 1.5rem 2rem 0.6rem 2rem;
+    color: #555;
+    text-transform: uppercase;     
+}
+
+/* Contact Section */
+.contact_section{
+    font-family: "Playfair", serif;
+    font-size: 1.3rem;
+    margin: 1.5rem 2rem 0.6rem 2rem;
+    text-transform: uppercase;     
+}
+.contact_section > p{
+    font-family: "Playfair", serif;
+    font-size: 1.3rem;
+    color: #555;
+    text-transform: uppercase;     
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9rem;
+}
