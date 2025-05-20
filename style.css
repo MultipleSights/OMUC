@@ -1,3 +1,8 @@
+html {
+  scroll-padding-top: 100px; /* adjust this to match your header height */
+  scroll-behavior: smooth;   /* optional: for smooth scrolling */
+}
+
 /* Basic Reset */
 * {
     padding: 0;
@@ -325,3 +330,163 @@ footer {
     color: #fff;
     font-size: 0.9rem;
 }
+
+/* Responsive Styles */
+
+/* Medium devices and tablets */
+@media (max-width: 1024px) {
+  /* Navbar */
+  nav {
+    padding: 0 1rem;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .nav_center_part,
+  .nav_right_part {
+    flex-basis: 100%;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  /* Instead of nav ul (you don't have ul in nav?), apply directly on nav a */
+  nav a {
+    font-size: 1rem;
+  }
+
+  /* Hero section: stack text and image vertically */
+  .hero_section {
+    padding: 3rem 1rem 1rem 1rem;
+  }
+
+  .hero_section h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero_section p {
+    font-size: 1.1rem;
+  }
+
+  /* If you have a container wrapping hero text and image, stack them */
+  /* Assuming you have something like .hero-content */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-content img {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 20px;
+  }
+
+  /* Authorized construction cards */
+  .construction_cards_container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .construction_card {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  /* Search container and dropdown stack */
+  .search-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .custom-dropdown {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  #searchBar {
+    width: 100%;
+  }
+}
+
+/* Small devices and phones */
+@media (max-width: 600px) {
+  /* Navbar */
+  nav {
+    height: auto;
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  .logo a {
+    font-size: 1.6rem;
+  }
+
+  .nav_center_part,
+  .nav_right_part {
+    flex-basis: 100%;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    font-size: 14px;
+    padding: 8px 5px;
+  }
+
+  /* Hero Section */
+  .hero_section h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero_section p {
+    font-size: 1rem;
+  }
+
+  .explore_button {
+    font-size: 1rem;
+    padding: 10px 18px;
+    margin: 2rem 0 1rem 0;
+  }
+
+  /* Authorized Construction Cards */
+  .construction_card {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 1rem;
+  }
+
+  /* Search bar and dropdown full width */
+  .search-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .custom-dropdown,
+  #searchBar {
+    width: 100%;
+  }
+
+  /* About and Contact sections text size */
+  .about_section h2,
+  .contact_section {
+    font-size: 1.3rem;
+    margin: 1rem 1rem 0.5rem 1rem;
+  }
+
+  .abt_us_content,
+  .contact_section > p {
+    font-size: 1rem;
+    margin: 0 1rem 1rem 1rem;
+  }
+
+  /* Footer */
+  footer {
+    padding: 1.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+

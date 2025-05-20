@@ -1,0 +1,198 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar styling */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 9vh;
+    background-color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: "Noto Serif", serif;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+/* Logo */
+.logo a {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Center nav links */
+.nav_center_part {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Right nav links */
+.nav_right_part {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Auth buttons (like login/signup) */
+.auth_buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* All nav links */
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-size: 1.1rem;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+}
+
+/* Hover underline effect */
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #007bff;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+/* Active navbar background when scrolling */
+nav.scrolled {
+    background-color: #f8f8f898;
+}
+
+/* Optional: highlight current page in navbar */
+nav a.active {
+    color: #007bff;
+}
+nav a.active::after {
+    width: 100%;
+}
+
+/* Body padding for fixed nav */
+body {
+    padding-top: 10vh;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    padding: 3rem 1rem 1rem 1rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #1a73e8;
+    margin-bottom: 1rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* FAQ Container */
+.faq_container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* FAQ Item */
+.faq_item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    transition: box-shadow 0.3s ease;
+}
+
+.faq_item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Question */
+.faq_question {
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    cursor: pointer;
+    position: relative;
+    padding-right: 30px;
+    font-weight: bold;
+}
+
+.faq_question::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    font-size: 1.5rem;
+    color: #1a73e8;
+    transition: transform 0.3s ease;
+}
+
+.faq_question.active::after {
+    content: "-";
+    transform: rotate(180deg);
+}
+
+/* Answer (collapsible) */
+.faq_answer {
+    font-size: 1rem;
+    color: #555;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0.5rem;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.faq_answer.show {
+    max-height: 300px; /* Enough space for content */
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+        align-items: flex-start;
+    }
+
+    .nav_center_part,
+    .nav_right_part {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        align-items: flex-start;
+    }
+}
