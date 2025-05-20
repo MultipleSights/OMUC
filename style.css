@@ -89,6 +89,23 @@ nav.scrolled{
     background-color: #f8f8f898;
 }
 
+/* Hamburger icon styling - hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 2px;
+}
+
 /* Hero Section */
 
 .hero_section {
@@ -332,6 +349,61 @@ footer {
 }
 
 /* Responsive Styles */
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  /* Hide nav links */
+  .nav_center_part,
+  .nav_right_part {
+    display: none;
+    flex-direction: column;
+    background-color: #f8f8f8;
+    width: 100%;
+    position: absolute;
+    top: 9vh; /* right below navbar */
+    left: 0;
+    padding: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  /* Show hamburger */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Show menu when nav has active class */
+  nav.active .nav_center_part,
+  nav.active .nav_right_part {
+    display: flex;
+  }
+
+  /* Style nav links vertically */
+  .nav_center_part a,
+  .nav_right_part a {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Align nav_right_part links vertically with gap */
+  .nav_right_part {
+    gap: 0;
+  }
+
+  /* Auth buttons stacked */
+  .auth_buttons {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Adjust nav padding on mobile */
+  nav {
+    padding: 0 1rem;
+  }
+}
 
 /* Medium devices and tablets */
 @media (max-width: 1024px) {
