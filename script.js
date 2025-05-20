@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let title = card.querySelector('h3').innerText.toUpperCase();
       let owner = card.querySelector('.owner').innerText.toUpperCase();
       let plotId = card.querySelector('.plot-id').innerText.toUpperCase();
-      let approvalDate = card.querySelector('.approval-date').innerText.toUpperCase();
+      let approval = card.querySelector('.approval').innerText.toUpperCase();
 
       let matches = false;
 
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         matches = true;
       } else if (searchType === 'plotId' && plotId.includes(input)) {
         matches = true;
-      } else if (searchType === 'approvalDate' && approvalDate.includes(input)) {
+      } else if (searchType === 'approval' && approval.includes(`APPROVAL STATUS: ${input}`)) {
         matches = true;
       }
 
