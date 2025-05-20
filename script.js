@@ -1,3 +1,12 @@
+  const nav = document.getElementById('nav');
+  const hamburger = document.querySelector('.hamburger');
+
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', !expanded);
+  });
+
 document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.getElementById('nav');
 

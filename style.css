@@ -11,100 +11,142 @@ html {
     scroll-behavior: smooth;
 }
 
+/* ========== Base Navbar Styling ========== */
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Navbar styling */
 nav {
-    position: fixed;
-    width: 100%;
-    height: 9vh;
-    background-color: #f8f8f8;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    font-family: "Noto Serif", serif;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
+  position: fixed;
+  width: 100%;
+  height: 9vh;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Noto Serif", serif;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
 }
 
 /* Logo */
 .logo a {
-    font-size: 2.2rem;
-    font-weight: 700;
-    text-decoration: none;
-    color: #333;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #333;
 }
 
-/* Center links */
-.nav_center_part {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
-/* Right side */
+/* Center and right parts */
+.nav_center_part,
 .nav_right_part {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
 }
 
 /* Auth buttons inside nav_right_part */
 .auth_buttons {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
-/* All nav links */
+/* Nav links */
 nav a {
-    text-decoration: none;
-    color: #555;
-    font-size: 1.1rem;
-    font-weight: 500;
-    position: relative;
-    padding: 5px 0;
+  text-decoration: none;
+  color: #555;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
 }
 
-/* Hover effect */
+/* Hover underline effect */
 nav a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    background-color: #007bff;
-    left: 0;
-    bottom: 0;
-    transition: width 0.3s ease;
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #007bff;
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s ease;
 }
 
 nav a:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 nav a:hover {
-    color: #007bff;
+  color: #007bff;
 }
 
-nav.scrolled{
-    background-color: #f8f8f898;
+/* Scrolled nav */
+nav.scrolled {
+  background-color: #f8f8f898;
 }
 
-/* Hamburger icon styling - hidden on desktop */
+/* Hamburger icon */
 .hamburger {
   display: none;
   flex-direction: column;
-  justify-content: space-between;
-  width: 25px;
-  height: 20px;
   cursor: pointer;
+  gap: 5px;
 }
 
 .hamburger span {
+  width: 25px;
   height: 3px;
-  width: 100%;
-  background-color: #333;
-  border-radius: 2px;
+  background: #333;
+  transition: 0.3s ease;
 }
+
+/* Responsive - mobile view */
+@media (max-width: 900px) {
+  .nav_center_part,
+  .nav_right_part {
+    position: absolute;
+    top: 9vh;
+    left: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 2rem;
+    gap: 1.2rem;
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+
+  nav.active .nav_center_part,
+  nav.active .nav_right_part {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav_center_part a,
+  .nav_right_part a {
+    font-size: 1.2rem;
+  }
+
+  .auth_buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
 
 /* Hero Section */
 
@@ -347,218 +389,4 @@ footer {
     color: #fff;
     font-size: 0.9rem;
 }
-
-/* Responsive Styles */
-
-/* Responsive styling */
-@media (max-width: 768px) {
-  /* Hide nav links */
-  .nav_center_part,
-  .nav_right_part {
-    display: none;
-    flex-direction: column;
-    background-color: #f8f8f8;
-    width: 100%;
-    position: absolute;
-    top: 9vh; /* right below navbar */
-    left: 0;
-    padding: 1rem 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    z-index: 999;
-  }
-
-  /* Show hamburger */
-  .hamburger {
-    display: flex;
-  }
-
-  /* Show menu when nav has active class */
-  nav.active .nav_center_part,
-  nav.active .nav_right_part {
-    display: flex;
-  }
-
-  /* Style nav links vertically */
-  .nav_center_part a,
-  .nav_right_part a {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    border-bottom: 1px solid #ddd;
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Align nav_right_part links vertically with gap */
-  .nav_right_part {
-    gap: 0;
-  }
-
-  /* Auth buttons stacked */
-  .auth_buttons {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  /* Adjust nav padding on mobile */
-  nav {
-    padding: 0 1rem;
-  }
-}
-
-/* Medium devices and tablets */
-@media (max-width: 1024px) {
-  /* Navbar */
-  nav {
-    padding: 0 1rem;
-    height: auto;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .nav_center_part,
-  .nav_right_part {
-    flex-basis: 100%;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  /* Instead of nav ul (you don't have ul in nav?), apply directly on nav a */
-  nav a {
-    font-size: 1rem;
-  }
-
-  /* Hero section: stack text and image vertically */
-  .hero_section {
-    padding: 3rem 1rem 1rem 1rem;
-  }
-
-  .hero_section h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero_section p {
-    font-size: 1.1rem;
-  }
-
-  /* If you have a container wrapping hero text and image, stack them */
-  /* Assuming you have something like .hero-content */
-  .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero-content img {
-    width: 100%;
-    max-width: 300px;
-    margin-top: 20px;
-  }
-
-  /* Authorized construction cards */
-  .construction_cards_container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .construction_card {
-    width: 90%;
-    margin: 10px 0;
-  }
-
-  /* Search container and dropdown stack */
-  .search-container {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .custom-dropdown {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-
-  #searchBar {
-    width: 100%;
-  }
-}
-
-/* Small devices and phones */
-@media (max-width: 600px) {
-  /* Navbar */
-  nav {
-    height: auto;
-    padding: 0.5rem 1rem;
-    flex-wrap: wrap;
-  }
-
-  .logo a {
-    font-size: 1.6rem;
-  }
-
-  .nav_center_part,
-  .nav_right_part {
-    flex-basis: 100%;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-
-  nav a {
-    font-size: 14px;
-    padding: 8px 5px;
-  }
-
-  /* Hero Section */
-  .hero_section h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero_section p {
-    font-size: 1rem;
-  }
-
-  .explore_button {
-    font-size: 1rem;
-    padding: 10px 18px;
-    margin: 2rem 0 1rem 0;
-  }
-
-  /* Authorized Construction Cards */
-  .construction_card {
-    width: 100%;
-    margin: 0.5rem 0;
-    padding: 1rem;
-  }
-
-  /* Search bar and dropdown full width */
-  .search-container {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .custom-dropdown,
-  #searchBar {
-    width: 100%;
-  }
-
-  /* About and Contact sections text size */
-  .about_section h2,
-  .contact_section {
-    font-size: 1.3rem;
-    margin: 1rem 1rem 0.5rem 1rem;
-  }
-
-  .abt_us_content,
-  .contact_section > p {
-    font-size: 1rem;
-    margin: 0 1rem 1rem 1rem;
-  }
-
-  /* Footer */
-  footer {
-    padding: 1.5rem 1rem;
-    font-size: 0.8rem;
-  }
-}
-
 
