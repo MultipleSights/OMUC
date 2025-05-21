@@ -78,4 +78,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 });
- 
+
+document.addEventListener('DOMContentLoaded', () => {
+  const protectedLinks = document.querySelectorAll('.protected-link');
+
+  protectedLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+        e.preventDefault();
+        alert("Please log in to download this file.");
+        window.location.href = "log_sign.html"; // Redirect to login
+      } else {
+        // Allow download
+        const actualHref = link.getAttribute('data-href');
+        if (actualHref) {
+          window.open(actualHref, '_blank'); // Open download link
+        }
+      }
+    });
+  });
+});

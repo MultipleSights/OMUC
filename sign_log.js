@@ -1,28 +1,22 @@
-// Select container and toggle buttons
-const container = document.querySelector('.container');
-const registerBtn = document.querySelector('.register-btn');
+// Container toggle logic (if you have container toggle buttons)
+const container = document.querySelector('.container'); // add container if you have one
+const registerBtn = document.querySelector('.register-btn'); // adjust if you have buttons
 const loginBtn = document.querySelector('.login-btn');
 
-// Toggle form view
-registerBtn.addEventListener('click', () => {
-    container.classList.add('active');
-});
+if (registerBtn) registerBtn.addEventListener('click', () => container.classList.add('active'));
+if (loginBtn) loginBtn.addEventListener('click', () => container.classList.remove('active'));
 
-loginBtn.addEventListener('click', () => {
-    container.classList.remove('active');
-});
-
-// Base API URL
+// API base URL
 const API_URL = 'http://localhost:5000';
 
-// Handle Login
-const loginForm = document.getElementById('login-form');
+// Login form
+const loginForm = document.getElementById('loginForm');
 if (loginForm) {
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const email = document.getElementById('login-email').value;
-        const password = document.getElementById('login-password').value;
+        const email = document.getElementById('loginEmail').value.trim();
+        const password = document.getElementById('loginPassword').value.trim();
 
         try {
             const res = await fetch(`${API_URL}/login`, {
@@ -36,44 +30,45 @@ if (loginForm) {
             if (res.ok) {
                 alert('Login successful!');
                 localStorage.setItem('token', data.token);
-                window.location.href = 'dashboard.html'; // change to your actual page
+                // Redirect after login success:
+                window.location.href = 'index.html'; // replace with your actual page
             } else {
-                alert(data.error || 'Invalid credentials');
+                alert(data.error || 'Login failed');
             }
         } catch (err) {
-            console.error('Login error:', err);
-            alert('Something went wrong during login.');
+            alert('Login error: ' + err.message);
         }
     });
 }
 
-// Handle Signup
-const signupForm = document.getElementById('signup-form');
+// Signup form
+const signupForm = document.getElementById('signupForm');
 if (signupForm) {
     signupForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const email = document.getElementById('signup-email').value;
-        const password = document.getElementById('signup-password').value;
+        const username = document.getElementById('signupUsername').value.trim(); // if you want to send username too
+        const email = document.getElementById('signupEmail').value.trim();
+        const password = document.getElementById('signupPassword').value.trim();
 
         try {
             const res = await fetch(`${API_URL}/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ username, email, password }), // include username if your backend supports it
             });
 
             const data = await res.json();
 
             if (res.ok) {
-                alert('Signup successful! Please log in.');
-                container.classList.remove('active'); // Switch to login view
+                alert('Signup successful! Please login.');
+                // Switch to login form if you have container toggling logic
+                if (container) container.classList.remove('active');
             } else {
                 alert(data.error || 'Signup failed');
             }
         } catch (err) {
-            console.error('Signup error:', err);
-            alert('Something went wrong during signup.');
+            alert('Signup error: ' + err.message);
         }
     });
 }
