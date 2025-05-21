@@ -72,3 +72,19 @@ if (signupForm) {
         }
     });
 }
+document.addEventListener("DOMContentLoaded", () => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+        const userWantsToLogout = confirm("You are already logged in.\n\nPress OK to go to Home, or Cancel to log out.");
+
+        if (userWantsToLogout) {
+            // Redirect to homepage
+            window.location.href = "index.html";
+        } else {
+            // Log the user out
+            localStorage.removeItem("token");
+            alert("You have been logged out.");
+        }
+    }
+});
