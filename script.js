@@ -37,6 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
     dropdown.classList.toggle('show');
   };
 
+  document.getElementById('searchBar').addEventListener('input', () => {
+  searchFunction();
+});
+
   // Handle dropdown selection
   window.selectOption = function (option) {
     const dropdownSelected = document.querySelector('.dropdown-selected');
